@@ -3,7 +3,8 @@
 *.log
 *.pot
 *.pyc
-__pycache__
+loguin/__pycache__/
+principal/__pycache__/
 db.sqlite3
 media
 
@@ -63,7 +64,7 @@ celerybeat-schedule.*
 
 # Environments 
 .env 
-.venv 
+
 env/ 
 venv/ 
 ENV/ 
@@ -76,12 +77,6 @@ venv.bak/
 # mypy 
 .mypy_cache/ 
 
-# Sublime Text # 
-*.tmlanguage.cache 
-*.tmPreferences.cache 
-*.stTheme.cache 
-*.sublime-workspace 
-*.sublime-project 
 
 # sftp configuration file 
 sftp-config.json 
@@ -100,3 +95,11 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+.gitignore
+loguin/__pycache__/__init__.cpython-39.pyc
+loguin/__pycache__/settings.cpython-39.pyc
+principal/migrations/0002_comentario.py
+principal/migrations/0003_alter_comentario_post.py
+principal/migrations/__pycache__/__init__.cpython-39.pyc
+principal/migrations/__pycache__/__init__.cpython-39.pyc
+principal/__pycache__/views.cpython-39.pyc
