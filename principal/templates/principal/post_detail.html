@@ -1,0 +1,36 @@
+{% extends 'principal/layout.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-8">
+        <h1>{{ post.title }}</h1>
+        <small>By: {{ post.user }}</small>
+        <br>
+        <p>{{post.content}}</p>
+        <br>
+    </div>
+    <div class="col-4 align-self-center">
+        <div class="btn-group " role="group" aria-label="Basic example">
+            <a href="{% url 'delete-post' post.pk %}" type="button" class="btn btn-secondary">Eliminar Post</a>
+            <a href="{% url 'update-post' post.pk %}" type="button" class="btn btn-secondary">Actualizar Post</a>
+            
+          </div>
+    </div>  
+</div>
+    
+<h2>Comentarios:</h2>
+{% if not post.comentarios.all %}
+    <h3>No hay comentarios aún</h3>
+    <a href="{% url 'add_comment' post.pk %}">Añade uno</a>
+{% else %}
+    {% for comment in post.comentarios.all %}
+        <div class="media bg-light">
+            <div class="media-body ">
+                <h5 class="mt-0">Coment - <strong>{{comment.fecha_comentario}}</strong></h5>
+                <p>{{comment.comentario }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <a href="{% url 'add_comment' post.pk %}">Añade uno</a>
+{% endif %}
+{% endblock %}

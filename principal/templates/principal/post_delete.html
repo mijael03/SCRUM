@@ -1,0 +1,14 @@
+{% extends 'principal/layout.html' %}
+
+{% block content %}
+<h1>Eliminar- Post</h1>
+<br/><br/>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        <strong>¿Estas seguro de eliminar el Post?</strong><br/>
+        <button class="btn btn-secondary">Eliminar Post</button>
+    </form>
+</div>
+{% endblock %}

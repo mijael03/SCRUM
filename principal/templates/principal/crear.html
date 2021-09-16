@@ -9,84 +9,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body style="background-image: url(https://fondosmil.com/fondo/23183.jpg);">
-    <ul class="nav justify-content-end bg-dark">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    <br>
-    <br>
-    <br>
     <div class="container-md rounded" style="background-color: #F6F6F6;">
         <br>
         <br>
         <div class="container-md">
             <h1><span class="badge" style="background-color: #02586A;">Crear</span></h1>
-            <li><a class="badge" style="background-color: #02586A;" href="{% url 'editar' %}" class="...">Actualizar</a></li>
         </div>
         <br>
         <br>
         <div class="container-md">
-            <form class="container-md form" role="form" autocomplete="off">
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label form-control-label">Titulo</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" >
-                    </div>
-                </div>
-                <br>
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label form-control-label">Last
-                        name</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" >
-                    </div>
-                </div>
-                <br>
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label form-control-label">Email</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="email">
-                    </div>
-                </div>
-                <br>
-                <div class="mb-3 row">
-                    <label for="exampleFormControlTextarea1" class="col-lg-3 col-form-label form-control-label">Descripcion</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;"></textarea>
-                    </div>
-                    
-                </div>
-                <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Imagen</label>
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top col-sm-10" alt="...">
-                        <div class="card-body">
-                        </div>
-                    </div>
-                </div>    
-                <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-                <br>
-                <br>
-                <div class="form-group row">
-                    <div class="col-lg-12 text-left">
-                        <input type="reset" class="btn btn-secondary" value="Cancel">
-                        <input type="button" class="btn btn-primary"
-                            value="Save Changes">
-                    </div>
-                </div>
-                <br><br>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button>Post</button>
+            </form>
         </div>
     </div>
 </body>
