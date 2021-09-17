@@ -30,6 +30,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
+                        {% if cat_menu %}
+				            <li class="nav-item dropdown mx-0 mx-lg-1">
+					            <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                Categories
+					            </a>
+					            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	  
+						
+					                {% for item in cat_menu %}
+						                <a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a>
+					                {% endfor %}
+	  
+					  
+					            </div>
+				            </li>
+				        {% else %}
+				  
+					        <li class="nav-item">
+					            <a class="nav-link" href="{% url 'category-list' %}">Categories</a>
+					        </li>
+	  
+				  {% endif %}
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'add_category' %}">Add category</a>
+                        </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Blog</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Nosotros</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contáctanos</a></li>
@@ -68,7 +93,7 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
-                    {% for post in object_list %}
+                    {% for post in page_obj %}
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -79,6 +104,23 @@
                         </div>
                     </div>
                     {% endfor %}
+                </div>
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
                 </div>
             </div>
         </section>
